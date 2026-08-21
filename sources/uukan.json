@@ -1,0 +1,54 @@
+[
+  {
+    "bookSourceName": "UU看书",
+    "bookSourceUrl": "https://www.uukan.org",
+    "bookSourceType": 0,
+    "bookSourceGroup": "网络小说",
+    "bookSourceComment": "UU看书 www.uukan.org | 玄幻、仙侠、都市等热门小说 | v1.1",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36\"}",
+    "searchUrl": "/search/{{key}}/{{page}}.html",
+    "ruleSearch": {
+      "bookList": "class.bookbox",
+      "name": "class.bookname@tag.a@text",
+      "bookUrl": "class.bookname@tag.a@href",
+      "author": "class.author.0@text##作者：",
+      "wordCount": "class.author.1@text##字数：",
+      "intro": "class.update@text##简介：",
+      "lastChapter": "class.cat@tag.a@text"
+    },
+    "ruleBookInfo": {
+      "name": "class.booktitle@text",
+      "author": "class.booktag@tag.a.0@text",
+      "kind": "class.booktag@tag.a.1@text",
+      "wordCount": "class.booktag@tag.span.0@text",
+      "lastChapter": "class.bookchapter@text",
+      "updateTime": "class.booktime@text##更新时间：",
+      "coverUrl": "class.bookcover@tag.img@src",
+      "intro": "class.bookintro@text##《[^》]{1,25}》是作家[\\s\\S]*$##",
+      "tocUrl": "text.查看全部章节@href"
+    },
+    "ruleToc": {
+      "chapterList": "id.allchapter@tag.dd@tag.a",
+      "chapterName": "text",
+      "chapterUrl": "href",
+      "nextTocUrl": "id.linkNext@href"
+    },
+    "ruleContent": {
+      "content": "@js:var m=result.match(/id=\"content\"[^>]*>([\\s\\S]*?)<\\/div>/);var t=m?m[1].replace(/<[^>]+>/g,'\\n').replace(/&nbsp;|\\u00A0/g,'').replace(/\\n{2,}/g,'\\n').trim():'';if(!t||t.length<200||/正在(更新|整理|生成)|更新中/.test(t))throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';t",
+      "replaceRegex": "##(?:UU看书|uukan\\.org|请收藏|章节错误.*)##"
+    },
+    "exploreUrl": "排行榜::/ranking/hits/{{page}}.html\n全本小说::/full/{{page}}.html\n最近更新::/ranking/update/{{page}}.html\n新玉初藏阁::/ranking/create/{{page}}.html\n笔耕不辍堂::/ranking/guru/{{page}}.html\n字耕里程榜::/ranking/words/{{page}}.html\n未删减::/library/3RJ1QnczDOsEL8sfB3M6GQ/{{page}}.html\n重生::/library/1AkF9vmX7E5lpf2FUyxDzJ/{{page}}.html\n穿越::/library/1ymCyAWjczVtChji5DJwhv/{{page}}.html\n体育::/library/1PmWSRSMnPZv63sO8Lp3xR/{{page}}.html\n现实::/library/2F4irggUl2IuJ75CIdnyEa/{{page}}.html\n玄幻::/library/4UIdwqRRY7YW2MNwYUJqYe/{{page}}.html\n仙侠::/library/1VFsPoIVRJXnEcEGknQVQ2/{{page}}.html\n都市::/library/2bD14zoJ5n5YWC79VN8jh8/{{page}}.html\n历史::/library/7eiUerXvqeoCdxVif52um/{{page}}.html\n科幻::/library/7Xby7wh876h3OAhmgyKZ5l/{{page}}.html\n军事::/library/5jQFwniy0ePOv6DBahKY6P/{{page}}.html\n言情::/library/P8uKOtwN1c01SfLxrs6Ll/{{page}}.html\n轻小说::/library/1hYULp6SulAZsZTocTgoTS/{{page}}.html\n悬疑::/library/4ZIqhbFqr32QQNJNDSpO5x/{{page}}.html\n奇幻::/library/1H7unJWOM0QO1o42hTlCyh/{{page}}.html\n游戏::/library/4tOTEk1VrhzatBAv1uNyyi/{{page}}.html\n诸天无限::/library/3L3Pimr4tThRWMyxdRoQlP/{{page}}.html\n武侠::/library/61Zip3gWvdKW6DruzfMmgM/{{page}}.html",
+    "ruleExplore": {
+      "bookList": "class.bookbox",
+      "name": "class.bookname@tag.a@text",
+      "bookUrl": "class.bookname@tag.a@href",
+      "author": "class.author.0@text##作者：",
+      "wordCount": "class.author.1@text##字数：",
+      "kind": "class.cat@tag.a@text",
+      "intro": "class.update@text##简介："
+    }
+  }
+]
