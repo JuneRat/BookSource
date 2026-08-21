@@ -178,7 +178,7 @@
     "ruleContent": {
       "content": "@js:(function(){var i=result.indexOf('class=\"fiction-body\"');if(i<0)throw '未找到正文,站点可能改版';var seg=result.substring(result.indexOf('>',i)+1);var k=seg.indexOf('fiction-chapter-navigator');if(k>0){var lt=seg.lastIndexOf('<',k);if(lt>0)seg=seg.substring(0,lt);}var t=seg.replace(/[ \\t]+/g,' ').replace(/<p[^>]*>([^<]*)<\\/p>/g,'$1\\n').replace(/<[^>]+>/g,'').replace(/\\n{3,}/g,'\\n\\n').trim();if(!t||t.length<200)throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';t.replace(/（看精彩成人小说上《成人小说网》：https:\\/\\/crxs\\.me）/g,'')})()"
     },
-    "exploreUrl": "@js:(function(){var out=[{\"title\":\"热门排行\",\"url\":\"/fictions/sort-read/{{page}}.html\"},{\"title\":\"最近更新\",\"url\":\"/fictions/{{page}}.html\"}];var html=java.ajax('https://crxs.me/categories.html');var reg=/href=\"(\\/fictions\\/tag-\\d+)\\.html\"[\\s\\S]*?<div class=\"title\">([^<]+)<\\/div>/g;var m;while((m=reg.exec(html))!==null){out.push({\"title\":m[2],\"url\":m[1]+\"/{{page}}.html\"})}JSON.stringify(out)})()",
+    "exploreUrl": "@js:\nlet list = [];\nlist.push({\"title\": \"热门排行\", \"url\": \"/fictions/sort-read/{{page}}.html\"});\nlist.push({\"title\": \"最近更新\", \"url\": \"/fictions/{{page}}.html\"});\nlet html = java.ajax(\"https://crxs.me/categories.html\");\nlet reg = /href=\"(\\/fictions\\/tag-\\d+)\\.html\"[\\s\\S]*?<div class=\"title\">([^<]+)<\\/div>/g;\nlet match;\nwhile ((match = reg.exec(html)) !== null) {\n    list.push({\n        \"title\": match[2],\n        \"url\": match[1] + \"/{{page}}.html\"\n    });\n}\nJSON.stringify(list);",
     "ruleExplore": {
       "bookList": "class.item.fiction",
       "name": "class.title@tag.a@text##[《》]",
