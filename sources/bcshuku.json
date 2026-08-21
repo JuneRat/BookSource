@@ -1,0 +1,46 @@
+[
+  {
+    "bookSourceName": "八叉书库",
+    "bookSourceUrl": "https://bcshuku.com",
+    "bookSourceType": 0,
+    "bookSourceGroup": "18+",
+    "bookSourceComment": "八叉书库 bcshuku.com | 正文经 /conapi.php 接口加载 | v1.0",
+    "enabled": false,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36\"}",
+    "searchUrl": "/e/search/index.php,{\"method\":\"POST\",\"body\":\"keyboard={{key}}&show=title,writer,byr&searchget=1\"}",
+    "ruleSearch": {
+      "bookList": "class.truyenhot_li_customcol",
+      "name": "tag.h3@tag.a@title",
+      "bookUrl": "tag.h3@tag.a@href",
+      "kind": "class.update_cate@text",
+      "lastChapter": "class.tien_to_full@tag.a@text"
+    },
+    "ruleBookInfo": {
+      "name": "class.desc@tag.h3@text",
+      "author": "class.info-chitiet.0@tag.a@text",
+      "kind": "{{class.info-chitiet.1@text##\\s+## }}",
+      "lastChapter": "class.list-chapter@tag.a.-1@text",
+      "coverUrl": "class.wallpaper@tag.img@src",
+      "intro": "class.desc-text@textNodes"
+    },
+    "ruleToc": {
+      "chapterList": "class.list-chapter@tag.a",
+      "chapterName": "title",
+      "chapterUrl": "href"
+    },
+    "ruleContent": {
+      "content": "@js:var m=result.match(/\\$\\.post\\(\"\\/conapi\\.php\", \\{\"url\":\"([^\"]+)\",\"mobile\": \"1\",\"isk\":\"1\",\"novel\":\"(\\d+)\",\"chapter\":\"(\\d+)\"/);if(!m)throw '章节页无正文API参数,站点可能改版';var body='url='+encodeURIComponent(m[1])+'&mobile=1&isk=1&novel='+m[2]+'&chapter='+m[3];var resp=java.post('https://bcshuku.com/conapi.php',body,'{\"X-Requested-With\":\"XMLHttpRequest\",\"User-Agent\":\"Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36\",\"Referer\":\"https://bcshuku.com/novel'+m[2]+'/chapter'+m[3]+'.html\"}');var d=JSON.parse(resp.body());if(d.success!=1)throw '正文接口返回失败';var t=(d.content||'').replace(/\\r/g,'').replace(/[ \\t]+/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim();if(!t||t.length<200||/正在加载/.test(t))throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';t"
+    },
+    "exploreUrl": "热门::@js:'https://bcshuku.com/popular/' + (page > 1 ? 'index_' + page + '.html' : '')\n书库::@js:'https://bcshuku.com/latest/' + (page > 1 ? 'index_' + page + '.html' : '')\n完结::@js:'https://bcshuku.com/completed/' + (page > 1 ? 'index_' + page + '.html' : '')\n新书::@js:'https://bcshuku.com/release/' + (page > 1 ? 'index_' + page + '.html' : '')\n长篇::@js:'https://bcshuku.com/booklist1' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n综合::@js:'https://bcshuku.com/booklist2' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n武侠::@js:'https://bcshuku.com/booklist3' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n历史::@js:'https://bcshuku.com/booklist4' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n都市::@js:'https://bcshuku.com/booklist5' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n玄幻::@js:'https://bcshuku.com/booklist6' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n女生::@js:'https://bcshuku.com/booklist7' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n其他::@js:'https://bcshuku.com/booklist8' + (page > 1 ? '/' + (page - 1) + '.html' : '')\n现代::@js:'https://bcshuku.com/booklist9' + (page > 1 ? '/' + (page - 1) + '.html' : '')",
+    "ruleExplore": {
+      "bookList": "class.home-truyendecu",
+      "name": "tag.h3@text",
+      "bookUrl": "class.each_truyen@tag.a@href",
+      "kind": "class.hoan-thanh-mau.0@text",
+      "coverUrl": "class.each_truyen@tag.img@src",
+      "lastChapter": "class.tt-status@tag.a@text"
+    }
+  }
+]
