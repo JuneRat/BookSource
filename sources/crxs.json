@@ -29,7 +29,7 @@
     },
     "ruleToc": {
       "chapterList": "class.chapter-container@tag.a",
-      "chapterName": "class.chapter-item@text",
+      "chapterName": "tag.div@text",
       "chapterUrl": "href"
     },
     "ruleContent": {
