@@ -27,9 +27,9 @@
       "intro": "class.desc-text@textNodes"
     },
     "ruleToc": {
-      "chapterList": "id.list-chapter@tag.a",
-      "chapterName": "text",
-      "chapterUrl": "href",
+      "chapterList": "//div[@id='list-chapter']//ul[@class='list-chapter']//a",
+      "chapterName": "@title",
+      "chapterUrl": "@js:\nvar doc = org.jsoup.Jsoup.parse(result);\nvar link = doc.select(\"a\").first();\n'https://bcshuku.com' + link.attr(\"href\");",
       "nextTocUrl": "//div[@id=\"pagination\"]//li[last()-1]/a/@href"
     },
     "ruleContent": {

@@ -13,7 +13,7 @@
     "ruleSearch": {
       "bookList": "class.item.fiction",
       "name": "class.title@tag.a@text##[《》]",
-      "bookUrl": "tag.a.0@href",
+      "bookUrl": "class.title@tag.a@href",
       "coverUrl": "class.img@style##background-image:url\\('(https://.*\\.\\w+)'\\);##$1",
       "intro": "class.brief@text",
       "author": "class.tags@text.0@text##作者："
@@ -39,7 +39,7 @@
     "ruleExplore": {
       "bookList": "class.item.fiction",
       "name": "class.title@tag.a@text##[《》]",
-      "bookUrl": "tag.a.0@href",
+      "bookUrl": "class.title@tag.a@href",
       "coverUrl": "class.img@style##background-image:url\\('(https://.*\\.\\w+)'\\);##$1",
       "intro": "class.brief@text",
       "author": "class.tags@text.0@text##作者："
