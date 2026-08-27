@@ -241,6 +241,55 @@
     }
   },
   {
+    "bookSourceName": "第一版主",
+    "bookSourceUrl": "https://www.diyibanzhu.quest",
+    "bookSourceType": 0,
+    "bookSourceGroup": "18+",
+    "bookSourceComment": "第一版主网 diyibanzhu.quest | 搜索POST/正文内分页_view_N/目录倒序 | v1.0",
+    "enabled": false,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0\", \"Referer\": \"https://www.diyibanzhu.quest/\"}",
+    "searchUrl": "/wap.php?action=search,{\"method\":\"POST\",\"body\":\"wd={{key}}&objectType=2\"}",
+    "ruleSearch": {
+      "bookList": "class.column-2",
+      "name": "class.name@text",
+      "bookUrl": "class.name@href",
+      "author": "class.info@text##.*作者：##",
+      "wordCount": "class.info@tag.span.1@text##字数：",
+      "lastChapter": "class.update@tag.a@text",
+      "kind": "class.right@tag.span.0@text"
+    },
+    "ruleBookInfo": {
+      "name": "tag.h1@text",
+      "author": "class.info@text##作者：##",
+      "kind": "class.info@text##.*类型：##",
+      "wordCount": "class.info@text##.*字数：##",
+      "lastChapter": "class.update@tag.a.0@text",
+      "coverUrl": "tag.img@src",
+      "intro": "class.book-intro@tag.div.1@text"
+    },
+    "ruleToc": {
+      "chapterList": "class.column-2",
+      "chapterName": "tag.a@text",
+      "chapterUrl": "tag.a@href",
+      "nextTocUrl": "text.下页@href"
+    },
+    "ruleContent": {
+      "content": "@js:(function(){var i=result.indexOf('id=\"nr1\"');if(i<0)throw '未找到正文,站点可能改版';var seg=result.substring(result.indexOf('>',i)+1);var k=seg.indexOf('tuijian');if(k>0){var lt=seg.lastIndexOf('<div',k);if(lt>0)seg=seg.substring(0,lt);}var pages=seg.match(/href=['\"](\\/view\\/\\d+_\\d+\\.html)['\"][^>]*>【(\\d+)】/g);var t=seg.replace(/<br\\s*\\/?>/g,'\\n').replace(/<[^>]+>/g,'').replace(/&nbsp;/g,' ').replace(/[ \\t]+/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim();var ads=/拉倒底部可以下载安卓APP|APP网址部分手机无法打开|最新章节请访问|_banzhu_shangyiye|本章未完，点击|【\\d+】$|^\\s*\\d{2}-\\d{2}-\\d{2}\\s*$/;var lines=t.split('\\n');var clean=[];for(var j=0;j<lines.length;j++){var l=lines[j].trim();if(!ads.test(l))clean.push(l);}t=clean.join('\\n').replace(/\\n{3,}/g,'\\n\\n').trim();if(!t||t.length<200)throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';t})()",
+      "nextContentUrl": "@js:(function(){var m=result.match(/class=['\"]curr['\"]>【(\\d+)】<\\/span>[\\s\\S]*?<a href=['\"](\\/view\\/\\d+_\\d+\\.html)['\"]/);if(!m)return '';var cur=m[1];var ms=result.match(/href=['\"](\\/view\\/\\d+_(\\d+)\\.html)['\"][^>]*>【(\\d+)】</g);if(!ms)return '';for(var j=0;j<ms.length;j++){var pm=ms[j].match(/href=['\"](\\/view\\/\\d+_\\d+\\.html)['\"][^>]*>【(\\d+)】</);if(pm&&parseInt(pm[2])==parseInt(cur)+1)return 'https://www.diyibanzhu.quest'+pm[1];}return ''})()"
+    },
+    "exploreUrl": "总人气::/wap.php?action=shuku&order=1\n月人气::/wap.php?action=shuku&order=2\n最后更新::/wap.php?action=shuku&order=3\n完本精选::/wap.php?action=shuku&over=1\n玄幻奇幻::/wap.php?action=shuku&order=1&tid=4\n仙侠武侠::/wap.php?action=shuku&order=1&tid=3\n都市言情::/wap.php?action=shuku&order=1&tid=2\n穿越历史::/wap.php?action=shuku&order=1&tid=1\n科幻灵异::/wap.php?action=shuku&order=1&tid=6\n其他小说::/wap.php?action=shuku&order=1&tid=8",
+    "ruleExplore": {
+      "bookList": "class.column-2",
+      "name": "class.name@text",
+      "bookUrl": "class.name@href",
+      "author": "class.info@text##.*作者：##",
+      "wordCount": "class.info@tag.span.1@text##字数：",
+      "lastChapter": "class.update@tag.a@text"
+    }
+  },
+  {
     "bookSourceName": "UU看书",
     "bookSourceUrl": "https://www.uukan.org",
     "bookSourceType": 0,
