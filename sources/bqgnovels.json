@@ -34,7 +34,7 @@
       "nextTocUrl": "@js:var d = JSON.parse(result).data; d.list.length >= 100 ? baseUrl.replace(/page=\\d+/, 'page=' + (parseInt(d.page) + 1)) : ''"
     },
     "ruleContent": {
-      "content": "@js:var d=JSON.parse(result).data;var t=(d.text&&d.text[0])?d.text[0].text:'';t=t.replace(/\\u00A0/g,'').replace(/&nbsp;/g,'').replace(/<!--[\\s\\S]*?-->/g,'').replace(/\\ufeff/g,'').replace(/\\n{2,}/g,'\\n').trim();if(!t||t.replace(/<[^>]+>/g,'').length<200)throw '本章仅'+t.replace(/<[^>]+>/g,'').length+'字,疑似站点未生成完成,请稍后重试或换源';t"
+      "content": "@js:var d=JSON.parse(result).data;var t=(d.text&&d.text[0])?d.text[0].text:'';t=t.replace(/\\u00A0/g,'').replace(/&nbsp;/g,'').replace(/<!--[\\s\\S]*?-->/g,'').replace(/\\ufeff/g,'').replace(/\\n{2,}/g,'\\n').trim();if(!t||t.replace(/<[^>]+>/g,'').length<300&&!/[。！？…”]$/.test(t.replace(/<[^>]+>/g,'').replace(/\\s+$/,'')))throw '本章仅'+t.replace(/<[^>]+>/g,'').length+'字,疑似站点未生成完成,请稍后重试或换源';t"
     },
     "exploreUrl": "排行榜::/api/query/get_list?class=0&page={{page}}\n完结小说::/api/query/get_list?class=end&page={{page}}\n金融小说::/api/query/get_list?class=7&page={{page}}\n玄幻奇幻::/api/query/get_list?class=1&page={{page}}\n修真武侠::/api/query/get_list?class=2&page={{page}}\n都市言情::/api/query/get_list?class=3&page={{page}}\n穿越历史::/api/query/get_list?class=4&page={{page}}\n网游竞技::/api/query/get_list?class=5&page={{page}}\n科幻灵异::/api/query/get_list?class=6&page={{page}}",
     "ruleExplore": {
@@ -82,7 +82,7 @@
       "nextTocUrl": "@js:var d = JSON.parse(result).data; d.list.length >= 100 ? baseUrl.replace(/page=\\d+/, 'page=' + (parseInt(d.page) + 1)) : ''"
     },
     "ruleContent": {
-      "content": "@js:var d=JSON.parse(result).data;var t=(d.text&&d.text[0])?d.text[0].text:'';t=t.replace(/\\u00A0/g,'').replace(/&nbsp;/g,'').replace(/<!--[\\s\\S]*?-->/g,'').replace(/\\ufeff/g,'').replace(/\\n{2,}/g,'\\n').trim();if(!t||t.replace(/<[^>]+>/g,'').length<200)throw '本章仅'+t.replace(/<[^>]+>/g,'').length+'字,疑似站点未生成完成,请稍后重试或换源';t"
+      "content": "@js:var d=JSON.parse(result).data;var t=(d.text&&d.text[0])?d.text[0].text:'';t=t.replace(/\\u00A0/g,'').replace(/&nbsp;/g,'').replace(/<!--[\\s\\S]*?-->/g,'').replace(/\\ufeff/g,'').replace(/\\n{2,}/g,'\\n').trim();if(!t||(t.replace(/<[^>]+>/g,'').length<300&&!/[。！？…”]$/.test(t.replace(/<[^>]+>/g,'').replace(/\\s+$/,''))))throw '本章仅'+t.replace(/<[^>]+>/g,'').length+'字,疑似站点未生成完成,请稍后重试或换源';t"
     },
     "exploreUrl": "激情小说::/api/query/get_list?class=8&page={{page}}",
     "ruleExplore": {

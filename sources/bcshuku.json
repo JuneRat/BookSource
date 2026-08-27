@@ -9,7 +9,6 @@
     "enabledExplore": true,
     "enabledCookieJar": true,
     "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0\", \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\", \"Accept-Language\": \"zh-CN,zh;q=0.9\", \"Referer\": \"https://bcshuku.com/\", \"x-requested-with\": \"XMLHttpRequest\"}",
-
     "searchUrl": "@js:var r=java.get('https://bcshuku.com/e/search/index.php?keyboard='+key+'&show=title,writer,byr&searchget=1',{'User-Agent':'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36','Referer':'https://bcshuku.com/'});var loc=r.header('location');var sid=loc.match(/searchid=(\\d+)/)[1];page<=1?'https://bcshuku.com/e/search/result/?searchid='+sid:'https://bcshuku.com/e/search/result/index.php?page='+(page-1)+'&searchid='+sid",
     "ruleSearch": {
       "bookList": "//div[@class=\"one-row\"]/div[contains(@class,\"home-truyendecu\")]",
@@ -19,7 +18,6 @@
       "author": "//div[contains(@class,\"chuyen-muc\")]//a/text()",
       "lastChapter": "//div[contains(@class,\"tt-status\")]//small/text()"
     },
-
     "ruleBookInfo": {
       "name": "class.desc@tag.h3@text",
       "author": "class.info-chitiet.0@tag.a@text",
@@ -28,18 +26,15 @@
       "coverUrl": "class.wallpaper@tag.img@src",
       "intro": "class.desc-text@textNodes"
     },
-
     "ruleToc": {
       "chapterList": "id.list-chapter@tag.a",
       "chapterName": "text",
       "chapterUrl": "href",
       "nextTocUrl": "//div[@id=\"pagination\"]//li[last()-1]/a/@href"
     },
-
     "ruleContent": {
-      "content": "@js:(function(){var m=result.match(/\\{\"url\"\\s*:\\s*\"[^\"]+\"\\s*,\\s*\"mobile\"\\s*:\\s*\"\\d\"\\s*,\\s*\"isk\"\\s*:\\s*\"\\d\"\\s*,\\s*\"novel\"\\s*:\\s*\"\\d+\"\\s*,\\s*\"chapter\"\\s*:\\s*\"\\d+\"\\s*\\}/);if(!m)throw '章节页无正文API参数,站点可能改版';var o=JSON.parse(m[0]);var body=String('url='+encodeURIComponent(o.url)+'&mobile='+o.mobile+'&isk='+o.isk+'&novel='+o.novel+'&chapter='+o.chapter);var h={'User-Agent':'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36','Accept':'application/json, text/javascript, */*; q=0.01','x-requested-with':'XMLHttpRequest','content-type':'application/x-www-form-urlencoded; charset=UTF-8','origin':'https://bcshuku.com','referer':String(baseUrl)};var resp=java.post('https://bcshuku.com/conapi.php',body,h);var d=JSON.parse(String(resp.body()));if(d.success!=1)throw '正文接口返回失败';var t=String(d.content||'').replace(/\\r/g,'').replace(/[ \\t]+/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim();if(!t||t.length<200||/正在加载/.test(t))throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';return t})()"
+      "content": "@js:(function(){var m=result.match(/\\{\"url\"\\s*:\\s*\"[^\"]+\"\\s*,\\s*\"mobile\"\\s*:\\s*\"\\d\"\\s*,\\s*\"isk\"\\s*:\\s*\"\\d\"\\s*,\\s*\"novel\"\\s*:\\s*\"\\d+\"\\s*,\\s*\"chapter\"\\s*:\\s*\"\\d+\"\\s*\\}/);if(!m)throw '章节页无正文API参数,站点可能改版';var o=JSON.parse(m[0]);var body=String('url='+encodeURIComponent(o.url)+'&mobile='+o.mobile+'&isk='+o.isk+'&novel='+o.novel+'&chapter='+o.chapter);var h={'User-Agent':'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36','Accept':'application/json, text/javascript, */*; q=0.01','x-requested-with':'XMLHttpRequest','content-type':'application/x-www-form-urlencoded; charset=UTF-8','origin':'https://bcshuku.com','referer':String(baseUrl)};var resp=java.post('https://bcshuku.com/conapi.php',body,h);var d=JSON.parse(String(resp.body()));if(d.success!=1)throw '正文接口返回失败';var t=String(d.content||'').replace(/\\r/g,'').replace(/[ \\t]+/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim();if(!t||(t.length<300&&!/[。！？…”]$/.test(t.replace(/\\s+$/,'')))||/正在加载/.test(t))throw '本章仅'+t.length+'字,疑似站点未生成完成,请稍后重试或换源';return t})()"
     },
-
     "exploreUrl": "热门排行::/popular/{{page==1?'':'index_'+page+'.html'}}\n最新更新::/latest/{{page==1?'':'index_'+page+'.html'}}\n最新入库::/release/{{page==1?'':'index_'+page+'.html'}}\n完本小说::/completed/{{page==1?'':'index_'+page+'.html'}}\n长篇::/booklist1/{{page-1}}.html\n综合::/booklist2/{{page-1}}.html\n武侠::/booklist3/{{page-1}}.html\n历史::/booklist4/{{page-1}}.html\n都市::/booklist5/{{page-1}}.html\n玄幻::/booklist6/{{page-1}}.html\n女生::/booklist7/{{page-1}}.html\n其他::/booklist8/{{page-1}}.html\n现代::/booklist9/{{page-1}}.html",
     "ruleExplore": {
       "bookList": "//div[@class=\"one-row\"]/div[contains(@class,\"home-truyendecu\")]",
