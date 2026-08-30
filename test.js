@@ -53,7 +53,9 @@ function makeJava(sourceHeader) {
     log: (...a) => console.log('    [js log]', ...a),
     strToMd5: s => s, // 简化
     base64Decode: s => Buffer.from(s, 'base64').toString('utf-8'),
-    base64Encode: s => Buffer.from(s, 'utf-8').toString('base64')
+    base64Encode: s => Buffer.from(s, 'utf-8').toString('base64'),
+    // legado JsExtensions.sleep: 同步阻塞
+    sleep: (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, Number(ms) || 0); } catch (e) { const until = Date.now() + (Number(ms) || 0); while (Date.now() < until) {} } }
   };
   return java;
 }
@@ -464,6 +466,7 @@ async function prefetchJavaCalls(body, java) {
       const r = curlSync(u, 'POST', b, h);
       return { body: () => r.text };
     },
+    sleep: (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, Number(ms) || 0); } catch (e) { const until = Date.now() + (Number(ms) || 0); while (Date.now() < until) {} } },
     log: (...a) => console.log('    [js log]', ...a)
   };
 }
