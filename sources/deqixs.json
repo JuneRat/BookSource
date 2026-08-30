@@ -1,0 +1,51 @@
+[
+  {
+    "bookSourceName": "得奇小说网",
+    "bookSourceUrl": "https://www.deqixs.org",
+    "bookSourceType": 0,
+    "bookSourceGroup": "综合",
+    "bookSourceComment": "得奇小说网 deqixs.org | 杰奇CMS | 搜索仅支持完整书名,精确命中302直达书页(class.item+||规则兜底解析) | 站点目录页硬截断999条且无分页接口(网页端同样如此),多卷书/超长书目录无法取全 | 正文内分页nextContentUrl,尾行电报群广告已过滤 | v1.0",
+    "enabled": true,
+    "enabledExplore": true,
+    "enabledCookieJar": true,
+    "header": "{\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0\"}",
+    "searchUrl": "/modules/article/search.php,{\"method\":\"POST\",\"body\":\"searchtype=articlename&searchkey={{key}}&action=login\"}",
+    "ruleSearch": {
+      "bookList": "class.item",
+      "name": "tag.h3@tag.a@text||tag.h1@tag.a@text",
+      "bookUrl": "tag.h3@tag.a@href||tag.h1@tag.a@href##\\#dir##",
+      "author": "tag.ul@text.作者：@text##.*作者：##||tag.p.1@tag.a@text##作者：##",
+      "kind": "tag.p.0@tag.span.1@text",
+      "wordCount": "tag.p.0@tag.span.2@text",
+      "lastChapter": "tag.ul@text.更新：@tag.a@text||tag.ul@tag.li.0@tag.a@text",
+      "intro": "text.简介：@text##^简介：##"
+    },
+    "ruleBookInfo": {
+      "name": "class.itemtxt@tag.h1@tag.a@text##最新章节$##",
+      "author": "class.itemtxt@tag.p.1@tag.a@text##作者：##",
+      "kind": "class.itemtxt@tag.p.0@tag.span.1@text",
+      "wordCount": "class.itemtxt@tag.p.0@tag.span.2@text",
+      "lastChapter": "class.itemtxt@tag.ul@tag.li.0@tag.a@text",
+      "coverUrl": "class.item@tag.img@src",
+      "intro": "class.des@text"
+    },
+    "ruleToc": {
+      "chapterList": "id.list@tag.li",
+      "chapterName": "tag.a@text",
+      "chapterUrl": "tag.a@href"
+    },
+    "ruleContent": {
+      "content": "@js:(function(){var i=result.indexOf('class=\"con\"');if(i<0)throw '未找到正文,站点可能改版';var s=result.indexOf('>',i)+1;var e=result.indexOf('<div class=\"prenext\"',s);if(e<0)e=result.indexOf('</div>',s);var t=result.substring(s,e);t=t.replace(/<br\\s*\\/?>/gi,'\\n').replace(/<[^>]+>/g,'');t=t.replace(/&nbsp;/g,' ').replace(/&emsp;/g,'　').replace(/&ensp;/g,'　').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'\"').replace(/&#39;/g,\"'\");var ads=/求书、催更、报错|t\\.me\\/deqixs|^\\s*本章未完.*点击下一页/;var lines=t.split('\\n');var out=[];for(var j=0;j<lines.length;j++){var l=lines[j].replace(/[\\t ]+/g,' ').trim();if(l&&ads.test(l))continue;out.push(l);}t=out.join('\\n').replace(/\\n{3,}/g,'\\n\\n').trim();if(t.length<50)throw '正文提取异常,请稍后重试';return t})()",
+      "nextContentUrl": "text.下一页@href"
+    },
+    "exploreUrl": "玄幻小说::/sort/1/{{page}}.html\n仙侠小说::/sort/2/{{page}}.html\n都市小说::/sort/3/{{page}}.html\n历史小说::/sort/4/{{page}}.html\n军事小说::/sort/5/{{page}}.html\n科幻小说::/sort/6/{{page}}.html\n言情小说::/sort/7/{{page}}.html\n轻小说::/sort/8/{{page}}.html\n诸天无限::/sort/9/{{page}}.html\n游戏小说::/sort/10/{{page}}.html\n奇幻小说::/sort/11/{{page}}.html\n悬疑小说::/sort/12/{{page}}.html\n体育小说::/sort/13/{{page}}.html\n官场小说::/sort/14/{{page}}.html\n武侠小说::/sort/15/{{page}}.html\n现实小说::/sort/16/{{page}}.html\n最新更新::/top/lastupdate/{{page}}.html\n完结小说::/quanben/{{page}}.html",
+    "ruleExplore": {
+      "bookList": "class.item",
+      "name": "tag.h3@tag.a@text",
+      "bookUrl": "tag.h3@tag.a@href",
+      "author": "tag.p.1@tag.a@text##作者：##",
+      "kind": "tag.p.0@tag.span.1@text",
+      "lastChapter": "tag.ul@tag.li.0@tag.a@text"
+    }
+  }
+]

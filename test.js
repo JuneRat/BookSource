@@ -143,10 +143,10 @@ function selectOne(el, step) {
   m = step.match(/^tag\.([^.]+)(?:\.(-?\d+))?$/);
   if (m) return nthOf(el, m[1], m[2], 'tag');
   m = step.match(/^text\.([^.]+)$/);
-  if (m) { // text.作者 -> 含此文字的元素
+  if (m) { // text.作者 -> ownText含此文字的元素(同Jsoup :containsOwn, 不命中仅包裹的父元素)
     const all = findAll(el, '*');
     for (const e of all) {
-      if (ownTextOf(e).includes(m[1]) || textOf(e).startsWith(m[1])) return e;
+      if (ownTextOf(e).includes(m[1])) return e;
     }
     return null;
   }
